@@ -8,14 +8,14 @@ import { ProductService } from '../product.service';
 })
 export class ProductlistComponent implements OnInit {
 
-  products = []
+  products = [];
   constructor(public service : ProductService) { }
 
   ngOnInit() {
     this.service
             .getProduct()
               .subscribe(response=>{
-                  this.products = response as any[]
+                  this.products = response['data'] as any[]
               })
   }
 
